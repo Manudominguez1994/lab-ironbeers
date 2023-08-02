@@ -49,4 +49,19 @@ app.get('/random-beer', (req, res, next) => {
     });
 });
 
+app.get('/beers/cerveza/:beer', (req, res, next) => {
+  console.log(req.params.beer);
+  punkAPI
+    .getBeer(req.params.beer)
+    .then(response => {
+      
+      res.render('eachbeer.hbs', {
+        unacerveza: response
+      });
+    })
+    .catch(error => {
+      console.log(error);
+    });
+});
+
 app.listen(3000, () => console.log('🏃‍ on port 3000'));

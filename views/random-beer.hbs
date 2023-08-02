@@ -3,16 +3,27 @@
 <div>
 
   <h3>Birras random</h3>
-  
-  <img src='{{beerRandom.image_url}}' alt='' width='100px' />
+
+  {{!-- Hemos cambiado la manera de obtener nuestra cerveza random para poder aplicar beerpartial. Para llamar a las propiedades de nuestra objetos con this --}}
+  {{!-- <img src='{{beerRandom.image_url}}' alt='' width='100px' />
   <h3>{{beerRandom.name}}</h3>
   <p>{{beerRandom.description}}</p>
-  <p>{{beerRandom.tagline}}</p>
-  {{#each beerRandom.food_pairing}}
+  <p>{{beerRandom.tagline}}</p> --}}
+  
+  {{#each beerRandom}}
+  
+    {{!-- <img src="{{this.image_url}}" alt="" width="200px">
+    <h3>{{this.name}}</h3>
+    <p>{{this.description}}</p>
+    <p>{{this.tagline}}</p> --}}
+
+    {{>beerpartial this}}
+
+  {{#each this.food_pairing}}
     <ul>
        <li>{{this}}</li>
     </ul>
   {{/each}}
   <p>{{beerRandom.brewers_tips}}</p>
-
+  {{/each}}
 </div>

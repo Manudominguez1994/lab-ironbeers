@@ -3,10 +3,12 @@
     <h1>CERVECITAS</h1>
     <div>
         {{#each beers}}
-            <img src="{{this.image_url}}" alt="" width="200px">
+            {{!-- <img src="{{this.image_url}}" alt="" width="200px">
             <h3>{{this.name}}</h3>
             <p>{{this.description}}</p>
-            <p>{{this.tagline}}</p>
+            <p>{{this.tagline}}</p> --}}
+            {{>beerpartial this}}
+
         {{/each}}
     </div>
 </div>
